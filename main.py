@@ -7,20 +7,41 @@ def number_guess():
     while True:
         try:
             guess=int(input("Guess the number: "))
-            if guess>100 or 1>guess:
+            if 1>guess or guess>100:
                 print("out of range")
-            elif guess==x:
+                continue
+            else:
+                i = i + 1
+            if guess==x:
                 print("Correct")
                 print('Number of attempts:',i)
                 break
             elif guess<x:
                 print("Higher")
-            elif guess>x:
-                print("Lower")
             else:
-                print("Wrong")
+                print("Lower")
+
         except ValueError:
             print("Wrong Input")
-        i=i+1
 
-number_guess()
+def play_game():
+    while True:
+        number_guess()
+        while True:
+            choice=input("play again? y/n: ")
+            if choice == 'y':
+                break
+            elif choice == 'n':
+                print("Goodbye")
+                return
+            else:
+                print("Wrong Input")
+
+
+play_game()
+
+
+
+
+
+
